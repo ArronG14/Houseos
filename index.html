@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#071016">
+    <title>HouseOS Furniture Editor</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">HouseOS</p>
+          <h1>Furniture Editor</h1>
+        </div>
+        <div class="status-pill" id="saveStatus" aria-live="polite">Ready</div>
+      </header>
+
+      <section class="toolbar" aria-label="Layout actions">
+        <button class="command" id="saveLayout" type="button">Save</button>
+        <button class="command" id="exportLayout" type="button">Export JSON</button>
+        <button class="command" id="exportImage" type="button">Export image</button>
+        <button class="command ghost" id="clearLayout" type="button">Clear</button>
+      </section>
+
+      <section class="quick-add" aria-label="Add furniture">
+        <button class="tile" type="button" data-add="sofa">
+          <span class="tile-icon sofa-icon" aria-hidden="true"></span>
+          <span>Sofa</span>
+        </button>
+        <button class="tile" type="button" data-add="tv">
+          <span class="tile-icon tv-icon" aria-hidden="true"></span>
+          <span>TV</span>
+        </button>
+        <button class="tile" type="button" data-add="tv-stand">
+          <span class="tile-icon stand-icon" aria-hidden="true"></span>
+          <span>TV stand</span>
+        </button>
+        <button class="tile" type="button" data-add="dining-table">
+          <span class="tile-icon table-icon" aria-hidden="true"></span>
+          <span>Dining table</span>
+        </button>
+        <button class="tile" type="button" data-add="chair">
+          <span class="tile-icon chair-icon" aria-hidden="true"></span>
+          <span>Chair</span>
+        </button>
+        <button class="tile" type="button" data-add="fridge">
+          <span class="tile-icon fridge-icon" aria-hidden="true"></span>
+          <span>Fridge</span>
+        </button>
+        <button class="tile" type="button" data-add="kitchen-run">
+          <span class="tile-icon run-icon" aria-hidden="true"></span>
+          <span>Kitchen run</span>
+        </button>
+        <button class="tile" type="button" data-add="upper-cupboards">
+          <span class="tile-icon cupboard-icon" aria-hidden="true"></span>
+          <span>Upper cupboards</span>
+        </button>
+      </section>
+
+      <section class="workspace" aria-label="Floorplan editor">
+        <div class="plan-frame">
+          <div class="plan-stage" id="planStage">
+            <img class="floorplan" id="floorplan" src="assets/approved-floorplan.jpg" alt="Approved empty HouseOS floorplan">
+            <div class="furniture-layer" id="furnitureLayer" aria-label="Placed furniture"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="selection-panel" aria-label="Selected furniture controls">
+        <div>
+          <p class="eyebrow">Selected</p>
+          <h2 id="selectedName">Nothing selected</h2>
+        </div>
+        <div class="control-grid">
+          <button class="command" id="rotateLeft" type="button">Rotate left</button>
+          <button class="command" id="rotateRight" type="button">Rotate right</button>
+          <label class="size-control">
+            <span>Size</span>
+            <input id="sizeControl" type="range" min="45" max="180" value="100">
+          </label>
+          <button class="command danger" id="deleteItem" type="button">Delete</button>
+        </div>
+      </section>
+
+      <footer class="footer-note">
+        Layout is saved in this browser. Export JSON when you want to send the exact furniture positions back into HouseOS.
+      </footer>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
